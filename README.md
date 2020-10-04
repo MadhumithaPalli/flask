@@ -4,7 +4,6 @@ Using Terraform to create a VM in Google Cloud.
 Starting a basic Python Flask server.
 
 Tools used :
-Existing ssh key
 Terraform
 
 Steps:
