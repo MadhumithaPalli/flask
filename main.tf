@@ -29,6 +29,24 @@ resource "google_compute_instance" "default" {
 
    access_config {
      // Include this section to give the VM an external ip address
+
    }
+ }
+metadata = {
+   ssh-keys = "INSERT_USERNAME:${file("~/.ssh/id_rsa.pub")}"
+ }
+}
+
+// A variable for extracting the external IP address of the instance
+output "ip" {
+ value = google_compute_instance.default.network_interface.0.access_config.0.nat_ip
+}
+resource "google_compute_firewall" "default" {
+ name    = "flask-app-firewall"
+ network = "default"
+
+ allow {
+   protocol = "tcp"
+   ports    = ["5000"]
  }
 }

@@ -1,2 +1,1 @@
-# flask
-Starting a basic Python Flask server
+## Project Details
